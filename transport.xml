@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- SPDX-License-Identifier: BSD-3-Clause -->
+<!-- SPDX-FileCopyrightText: Czech Technical University in Prague -->
+<library path="lib/libqoi_image_transport">
+    <class name="image_transport/qoi_pub" type="qoi_image_transport::Publisher" base_class_type="image_transport::PublisherPlugin">
+        <description>
+            This plugin publishes a CompressedImage using QOI compression.
+        </description>
+    </class>
+
+    <class name="image_transport/qoi_sub" type="qoi_image_transport::Subscriber" base_class_type="image_transport::SubscriberPlugin">
+        <description>
+            This plugin decompresses a CompressedImage topic compressed using QOI.
+        </description>
+    </class>
+</library>

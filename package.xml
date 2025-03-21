@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!-- SPDX-License-Identifier: BSD-3-Clause -->
+<!-- SPDX-FileCopyrightText: Czech Technical University in Prague -->
+<package format="3">
+  <name>qoi_image_transport</name>
+  <version>1.0.0</version>
+  <description>Image transport using QOI format</description>
+
+  <maintainer email="peckama2@fel.cvut.cz">Martin Pecka</maintainer>
+  <author email="peckama2@fel.cvut.cz">Martin Pecka</author>
+
+  <license file="LICENSE">BSD</license>
+
+  <url type="website">https://wiki.ros.org/qoi_image_transport</url>
+  <url type="repository">https://github.com/ctu-vras/qoi_image_transport</url>
+  <url type="bugtracker">https://github.com/ctu-vras/qoi_image_transport/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
+  <buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_depend>
+
+  <depend>cras_cpp_common</depend>
+  <depend>cras_topic_tools</depend>
+  <depend>image_transport_codecs</depend>
+  <depend>sensor_msgs</depend>
+
+  <build_depend>image_transport</build_depend>
+  <build_depend>pluginlib</build_depend>
+
+  <exec_depend>image_transport</exec_depend>
+  <exec_depend>pluginlib</exec_depend>
+
+  <test_depend condition="$ROS_PYTHON_VERSION == 2">python-catkin-lint</test_depend>
+  <test_depend condition="$ROS_PYTHON_VERSION == 3">python3-catkin-lint</test_depend>
+  <test_depend>roslint</test_depend>
+
+  <doc_depend>cras_docs_common</doc_depend>
+  <doc_depend>rosdoc_lite</doc_depend>
+
+  <export>
+    <image_transport plugin="${prefix}/transport.xml" />
+    <image_transport_codecs plugin="${prefix}/codec.xml" />
+    <rosdoc config="rosdoc.yaml" />
+  </export>
+</package>

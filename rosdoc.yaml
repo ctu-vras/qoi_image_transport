@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: BSD-3-Clause
+# SPDX-FileCopyrightText: Czech Technical University in Prague
+
+- builder: doxygen
+  name: C++ API
+  output_dir: c++
+  file_patterns: '*.h *.hh *.hpp *.dox README.md'
+  use_mdfile_as_mainpage: README.md
+  required: true
+- builder: sphinx
+  name: Python API
+  output_dir: python
+  sphinx_root_dir: doc
+  required: true
