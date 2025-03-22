@@ -14,3 +14,7 @@ This means it is possible to directly encode/decode images from C++/Python code 
 a pub/sub cycle. You don't even need a ROS master for the conversion.
 
 A benchmark compared to PNG is available [here](https://qoiformat.org/benchmark/).
+
+## Build Status
+
+[![CI](https://github.com/ctu-vras/qoi_image_transport/actions/workflows/ci.yaml/badge.svg)](https://github.com/ctu-vras/qoi_image_transport/actions/workflows/ci.yaml)
