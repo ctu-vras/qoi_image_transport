@@ -5,8 +5,8 @@
 Changelog for package qoi_image_transport
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.2 (2025-03-22)
+------------------
 * CI: Added CI.
 * Added unit tests, fixed little bugs.
 * Contributors: Martin Pecka
