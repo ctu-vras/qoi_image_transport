@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- SPDX-License-Identifier: BSD-3-Clause -->
+<!-- SPDX-FileCopyrightText: Czech Technical University in Prague -->
+<launch>
+    <test test-name="test_qoi_image_transport" pkg="qoi_image_transport" type="test_qoi_image_transport" />
+    <node name="republish_qoi" pkg="image_transport" type="republish" args="raw qoi">
+        <remap from="in" to="/spot/camera/hand_color/image" />
+        <remap from="out" to="republished" />
+    </node>
+    <node name="republish_raw" pkg="image_transport" type="republish" args="qoi raw">
+        <remap from="in" to="republished" />
+        <remap from="out" to="republished2" />
+    </node>
+</launch>

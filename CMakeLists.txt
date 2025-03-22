@@ -23,8 +23,7 @@ catkin_package(
 
 include_directories(include ${catkin_INCLUDE_DIRS})
 
-add_library(qoi src/qoi.c
-  src/qoi_codec_plugin.cpp)
+add_library(qoi src/qoi.c)
 
 add_library(qoi_codec src/qoi_codec.cpp)
 target_link_libraries(qoi_codec PUBLIC ${catkin_LIBRARIES} PRIVATE qoi)
@@ -56,7 +55,10 @@ install(FILES
 )
 
 if (CATKIN_ENABLE_TESTING)
+  find_package(rosbag REQUIRED)
+  find_package(roslaunch REQUIRED)
   find_package(roslint REQUIRED)
+  find_package(rostest REQUIRED)
 
   roslint_custom(catkin_lint "-W2" .)
 
@@ -74,12 +76,18 @@ if (CATKIN_ENABLE_TESTING)
 
   roslint_add_test()
 
-  ## Add gtest based cpp test target and link libraries
-  # catkin_add_gtest(${PROJECT_NAME}-test test/test_qoi_image_transport.cpp)
-  # if(TARGET ${PROJECT_NAME}-test)
-  #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
-  # endif()
+  include_directories(${rosbag_INCLUDE_DIRS})
 
-  ## Add folders to be run by python nosetests
-  # catkin_add_nosetests(test)
+  catkin_add_gtest(test_codec test/test_codec.cpp)
+  target_link_libraries(test_codec ${catkin_LIBRARIES} ${rosbag_LIBRARIES})
+  add_dependencies(test_codec qoi_codec_plugin)
+  target_compile_definitions(test_codec PRIVATE TEST_DATA_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/test/data\")
+
+  catkin_add_nosetests(test/test_codec.py DEPENDENCIES qoi_codec_plugin qoi_codec ${catkin_EXPORTED_TARGETS})
+
+  add_rostest_gmock(test_${PROJECT_NAME} test/test_${PROJECT_NAME}.test test/test_${PROJECT_NAME}.cpp)
+  target_link_libraries(test_${PROJECT_NAME} ${catkin_LIBRARIES} ${rosbag_LIBRARIES})
+  add_dependencies(test_${PROJECT_NAME} ${PROJECT_NAME})
+  target_compile_definitions(test_${PROJECT_NAME} PRIVATE TEST_DATA_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/test/data\")
+  roslaunch_add_file_check(test/test_${PROJECT_NAME}.test USE_TEST_DEPENDENCIES)
 endif()

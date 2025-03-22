@@ -85,7 +85,7 @@ QoiCodec::DecodeResult QoiCodec::decode(const sensor_msgs::CompressedImage& comp
   sensor_msgs::Image image;
   image.header = compressed.header;
   image.encoding = encoding;
-  image.is_bigendian = 1;
+  image.is_bigendian = 0;
 
   ::qoi_desc desc;
   auto* rawData = static_cast<uint8_t*>(
