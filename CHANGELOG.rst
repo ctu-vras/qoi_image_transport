@@ -5,6 +5,11 @@
 Changelog for package qoi_image_transport
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fixed licenses.
+* Contributors: Martin Pecka
+
 1.0.2 (2025-03-22)
 ------------------
 * CI: Added CI.
