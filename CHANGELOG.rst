@@ -5,8 +5,8 @@
 Changelog for package qoi_image_transport
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.0.4 (2025-04-01)
+------------------
 * Removed test data license from package.xml .
   This is a requirement of rosdistro maintainers.
 * Contributors: Martin Pecka
