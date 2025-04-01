@@ -11,7 +11,6 @@
 
   <license file="LICENSES/BSD-3-Clause.txt">BSD</license>  <!-- Most parts of this package -->
   <license file="LICENSES/MIT.txt">MIT</license>  <!-- QOI library, non-exported dependency -->
-  <license file="LICENSES/CC0-1.0.txt">CC0</license>  <!-- Only used for test data -->
 
   <url type="website">https://wiki.ros.org/qoi_image_transport</url>
   <url type="repository">https://github.com/ctu-vras/qoi_image_transport</url>
